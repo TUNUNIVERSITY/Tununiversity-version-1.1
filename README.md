@@ -1,4 +1,4 @@
-# 🎓 UniPlatform - University Management System
+# Tuuniversity- University Management System
 
 <div align="center">
 
@@ -801,29 +801,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For support, email support@uniplatform.com or join our Slack channel.
 
----
-
-## 🗺️ Roadmap
-
-### Version 2.0 (Planned)
-
-- [ ] Mobile applications (iOS & Android)
-- [ ] AI-powered grade predictions
-- [ ] Advanced analytics dashboard
-- [ ] Video conferencing integration
-- [ ] Automated timetable optimization
-- [ ] Multi-language support
-- [ ] Dark mode theme
-- [ ] Progressive Web App (PWA)
-- [ ] Real-time collaboration tools
-- [ ] Blockchain-based certificates
-
----
 
 <div align="center">
 
 **⭐ Star this repository if you find it helpful! ⭐**
 
-Made with ❤️ by the UniPlatform Team
 
 </div>
