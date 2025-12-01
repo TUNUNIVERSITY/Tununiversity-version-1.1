@@ -1,0 +1,347 @@
+version: '3.8'
+
+services:
+  # Database Services
+  postgres:
+    image: postgres:15-alpine
+    container_name: university-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: university_platform
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - university-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend Services
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    container_name: university-api-gateway
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - NODE_ENV=production
+      - LANDING_SERVICE_URL=http://landing-backend:4001
+      - LOGIN_SERVICE_URL=http://login-backend:4002
+      - ANALYTIQUE_SERVICE_URL=http://analytics-backend:4003
+      - TIMETABLE_SERVICE_URL=http://timetable-backend:4004
+      - STUDENT_SERVICE_URL=http://student-backend:4006
+      - HEAD_DEPARTMENT_SERVICE_URL=http://head-department-backend:4007
+      - TEACHER_SERVICE_URL=http://teacher-backend:4008
+    networks:
+      - university-network
+    depends_on:
+      - landing-backend
+      - login-backend
+      - student-backend
+      - head-department-backend
+      - teacher-backend
+    restart: unless-stopped
+
+  landing-backend:
+    build:
+      context: ./landing-page/backend
+      dockerfile: Dockerfile
+    container_name: university-landing-backend
+    ports:
+      - "4001:4001"
+    environment:
+      - PORT=4001
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=university_platform
+      - DB_USER=postgres
+      - DB_PASSWORD=admin123
+      - JWT_SECRET=your_jwt_secret_key_change_this_in_production
+    networks:
+      - university-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  login-backend:
+    build:
+      context: ./login-service/backend
+      dockerfile: Dockerfile
+    container_name: university-login-backend
+    ports:
+      - "4002:4002"
+    environment:
+      - PORT=4002
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=university_platform
+      - DB_USER=postgres
+      - DB_PASSWORD=admin123
+      - JWT_SECRET=your_jwt_secret_key_change_this_in_production
+      - FRONTEND_URL=http://localhost:3001
+      - SMTP_HOST=smtp.gmail.com
+      - SMTP_PORT=587
+      - SMTP_SECURE=false
+      - SMTP_USER=ahmedmissaoui617@gmail.com
+      - SMTP_PASS=uqyb lipt ijft tjto
+    networks:
+      - university-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  analytics-backend:
+    build:
+      context: ./Analytique-admin
+      dockerfile: Dockerfile
+    container_name: university-analytics-backend
+    ports:
+      - "4003:4003"
+    environment:
+      - PORT=4003
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=university_platform
+      - DB_USER=postgres
+      - DB_PASSWORD=admin123
+    networks:
+      - university-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  analytics-frontend:
+    build:
+      context: ./Analytique-admin/frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=http://localhost:4003/api
+    container_name: university-analytics-frontend
+    ports:
+      - "3004:80"
+    networks:
+      - university-network
+    depends_on:
+      - analytics-backend
+    restart: unless-stopped
+
+  timetable-backend:
+    build:
+      context: ./timetable-admin-view
+      dockerfile: Dockerfile
+    container_name: university-timetable-backend
+    ports:
+      - "4004:4004"
+    environment:
+      - PORT=4004
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=university_platform
+      - DB_USER=postgres
+      - DB_PASSWORD=admin123
+    networks:
+      - university-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  repository-backend:
+    build:
+      context: ./admin/repository-service
+      dockerfile: Dockerfile
+    container_name: university-repository-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:admin123@postgres:5432/university_platform
+      - SECRET_KEY=your_jwt_secret_key_change_this_in_production
+      - ALGORITHM=HS256
+      - ACCESS_TOKEN_EXPIRE_MINUTES=30
+    networks:
+      - university-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  student-backend:
+    build:
+      context: ./student-view/backend
+      dockerfile: Dockerfile
+    container_name: university-student-backend
+    ports:
+      - "4006:4006"
+    environment:
+      - PORT=4006
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://postgres:admin123@postgres:5432/university_platform
+      - JWT_SECRET=your_jwt_secret_key_change_this_in_production
+      - FILE_UPLOAD_DIR=/app/uploads
+      - STORAGE_BASE_URL=http://localhost:4006/uploads
+    networks:
+      - university-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  head-department-backend:
+    build:
+      context: ./head-department/backend
+      dockerfile: Dockerfile
+    container_name: university-head-department-backend
+    ports:
+      - "4007:4007"
+    environment:
+      - PORT=4007
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=university_platform
+      - DB_USER=postgres
+      - DB_PASSWORD=admin123
+      - JWT_SECRET=your_jwt_secret_key_change_this_in_production
+      - FRONTEND_URL=http://localhost:3006
+    networks:
+      - university-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  teacher-backend:
+    build:
+      context: ./teachers/backend
+      dockerfile: Dockerfile
+    container_name: university-teacher-backend
+    ports:
+      - "4008:4008"
+    environment:
+      - PORT=4008
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=university_platform
+      - DB_USER=postgres
+      - DB_PASSWORD=admin123
+      - NODE_ENV=production
+    networks:
+      - university-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Frontend Services
+  landing-frontend:
+    build:
+      context: ./landing-page
+      dockerfile: Dockerfile
+      args:
+        - REACT_APP_API_URL=http://localhost:4001
+    container_name: university-landing-frontend
+    ports:
+      - "3000:80"
+    networks:
+      - university-network
+    depends_on:
+      - landing-backend
+    restart: unless-stopped
+
+  login-frontend:
+    build:
+      context: ./login-service/frontend
+      dockerfile: Dockerfile
+      args:
+        - REACT_APP_API_URL=http://localhost:4002
+    container_name: university-login-frontend
+    ports:
+      - "3001:80"
+    networks:
+      - university-network
+    depends_on: 
+      - login-backend
+    restart: unless-stopped
+
+  admin-dashboard:
+    build:
+      context: ./admin-dashboard
+      dockerfile: Dockerfile
+    container_name: university-admin-dashboard
+    ports:
+      - "3002:80"
+    networks:
+      - university-network
+    restart: unless-stopped
+
+  admin-frontend:
+    build:
+      context: ./admin/frontend
+      dockerfile: Dockerfile
+    container_name: university-admin-frontend
+    ports:
+      - "3003:80"
+    networks:
+      - university-network
+    restart: unless-stopped
+
+  student-frontend:
+    build:
+      context: ./student-view/frontend
+      dockerfile: Dockerfile
+    container_name: university-student-frontend
+    ports:
+      - "3005:3000"
+    environment:
+      - NEXT_PUBLIC_STUDENT_API=http://localhost:4000/api
+      - NEXT_PUBLIC_STUDENT_API_SERVER=http://api-gateway:4000/api
+    networks:
+      - university-network
+    depends_on:
+      - student-backend
+      - api-gateway
+    restart: unless-stopped
+
+  head-department-frontend:
+    build:
+      context: ./head-department/frontend
+      dockerfile: Dockerfile
+      args:
+        - REACT_APP_API_URL=http://localhost:4007/api
+    container_name: university-head-department-frontend
+    ports:
+      - "3006:80"
+    networks:
+      - university-network
+    depends_on:
+      - head-department-backend
+    restart: unless-stopped
+
+  teacher-frontend:
+    build:
+      context: ./teachers/frontend
+      dockerfile: Dockerfile
+    container_name: university-teacher-frontend
+    ports:
+      - "3007:80"
+    networks:
+      - university-network
+    depends_on:
+      - teacher-backend
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  university-network:
+    driver: bridge

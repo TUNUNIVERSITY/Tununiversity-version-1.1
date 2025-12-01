@@ -1,0 +1,74 @@
+# Root level gitignore for University Platform
+
+# Docker
+.docker/
+docker-compose.override.yml
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# Database
+*.sql.backup
+*.dump
+pgdata/
+postgres-data/
+data/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Certificates and keys
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+
+# Secrets
+secrets/
+credentials/
+.secrets
+
+# Build outputs
+dist/
+build/
+out/
