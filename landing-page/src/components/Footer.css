@@ -1,0 +1,17 @@
+.footer {
+  background-color: rgb(17, 24, 39);
+  color: rgb(156, 163, 175);
+  padding: 48px 16px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.footer-container p {
+  color: rgb(156, 163, 175);
+  font-size: 0.875rem;
+}
