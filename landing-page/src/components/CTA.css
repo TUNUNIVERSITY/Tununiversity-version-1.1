@@ -1,0 +1,54 @@
+.cta {
+  background: linear-gradient(to bottom, white, rgb(249, 250, 251));
+  padding: 80px 16px;
+  margin: 0;
+  max-width: 100%;
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 672px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.cta-content h2 {
+  color: black;
+  font-size: 2.25rem;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.cta-content p {
+  color: rgb(75, 85, 99);
+  font-size: 1rem;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.btn-cta-primary {
+  background-color: rgb(217, 249, 157);
+  color: black;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  height: 48px;
+}
+
+.btn-cta-primary:hover {
+  background-color: rgb(190, 242, 100);
+}
+
+@media (max-width: 768px) {
+  .cta {
+    padding: 60px 16px;
+  }
+
+  .cta-content h2 {
+    font-size: 1.875rem;
+  }
+}
