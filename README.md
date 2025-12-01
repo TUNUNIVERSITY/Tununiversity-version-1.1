@@ -183,14 +183,8 @@ Before you begin, ensure you have the following installed:
 
 ### Quick Start
 
-1. **Clone the repository**
 
-```bash
-git clone https://github.com/yourusername/uniplatform.git
-cd uniplatform
-```
-
-2. **Environment Setup**
+. **Environment Setup**
 
 Create a `.env` file in the root directory (or use the provided `.env.example`):
 
@@ -198,7 +192,7 @@ Create a `.env` file in the root directory (or use the provided `.env.example`):
 # Database Configuration
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=your_secure_password
-POSTGRES_DB=university_platform
+POSTGRES_DB=name
 
 # JWT Secret
 JWT_SECRET=your_jwt_secret_key_here
