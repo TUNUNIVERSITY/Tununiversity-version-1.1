@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #cfcfcf;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.ring {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ring i {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #fff;
+  transition: 0.5s;
+}
+
+.ring i:nth-child(1) {
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  animation: animate 6s linear infinite;
+}
+
+.ring i:nth-child(2) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate 4s linear infinite;
+}
+
+.ring i:nth-child(3) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate2 10s linear infinite;
+}
+
+.ring:hover i {
+  border: 6px solid var(--clr);
+  filter: drop-shadow(0 0 20px var(--clr));
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.login {
+  position: absolute;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login h2 {
+  font-size: 2em;
+  color: #fff;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+}
+
+.login form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login .inputBx {
+  position: relative;
+  width: 100%;
+}
+
+.login .inputBx input,
+.login .inputBx select {
+  position: relative;
+  width: 100%;
+  padding: 12px 20px;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 40px;
+  font-size: 1.2em;
+  color: #fff;
+  box-shadow: none;
+  outline: none;
+  font-family: "Quicksand", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.login .inputBx input:focus,
+.login .inputBx select:focus {
+  border-color: #ff357a;
+  box-shadow: 0 0 15px rgba(255, 53, 122, 0.5);
+}
+
+.login .inputBx select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 20px;
+  padding-right: 45px;
+}
+
+.login .inputBx select option {
+  background: #111;
+  color: #fff;
+  padding: 10px;
+}
+
+.login .inputBx input[type="submit"],
+.login .inputBx input[type="button"] {
+  width: 100%;
+  background: linear-gradient(45deg, #ff357a, #fff172);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.login .inputBx input[type="submit"]:hover,
+.login .inputBx input[type="button"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(255, 53, 122, 0.4);
+}
+
+.login .inputBx input[type="submit"]:disabled,
+.login .inputBx input[type="button"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.login .inputBx input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.login .links {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.login .links a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Quicksand", sans-serif;
+  transition: all 0.3s ease;
+  font-size: 0.95em;
+}
+
+.login .links a:hover {
+  color: #ff357a;
+  text-shadow: 0 0 10px rgba(255, 53, 122, 0.5);
+}
+
+/* Alert styles */
+.alert {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 30px;
+  font-size: 0.85em;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  animation: slideIn 0.3s ease;
+}
+
+.alert-error {
+  background: rgba(255, 0, 87, 0.2);
+  border: 1px solid #ff0057;
+  color: #fff;
+}
+
+.alert-warning {
+  background: rgba(255, 253, 68, 0.2);
+  border: 1px solid #fffd44;
+  color: #fff;
+}
+
+.alert-success {
+  background: rgba(0, 255, 10, 0.2);
+  border: 1px solid #00ff0a;
+  color: #fff;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .ring {
+    width: 350px;
+    height: 350px;
+  }
+
+  .login {
+    width: 250px;
+    gap: 15px;
+  }
+
+  .login h2 {
+    font-size: 1.5em;
+  }
+
+  .login .inputBx input,
+  .login .inputBx select {
+    font-size: 1em;
+    padding: 10px 15px;
+  }
+
+  .alert {
+    font-size: 0.75em;
+    padding: 8px 12px;
+  }
+}
