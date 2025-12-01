@@ -1,0 +1,40 @@
+<div class="card">
+    <h2 style="color: #667eea; margin-bottom: 20px;">Students List</h2>
+    <p style="color: #666; margin-bottom: 20px;">Select a student to view their timetable</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Student Number</th>
+                <th>Name</th>
+                <th>Group</th>
+                <th>Specialty</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each students}}
+                <tr>
+                    <td>{{student_number}}</td>
+                    <td>{{first_name}} {{last_name}}</td>
+                    <td>{{group_name}}</td>
+                    <td>{{specialty_name}}</td>
+                    <td>
+                        <a href="/timetable/student/{{id}}" class="btn" style="padding: 8px 16px; font-size: 0.9rem;">
+                            View Timetable
+                        </a>
+                        <a href="/pdf/student/{{id}}" class="btn btn-success" style="padding: 8px 16px; font-size: 0.9rem; margin-left: 5px;" target="_blank">
+                            PDF
+                        </a>
+                    </td>
+                </tr>
+            {{else}}
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 40px; color: #999;">
+                        No students found
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

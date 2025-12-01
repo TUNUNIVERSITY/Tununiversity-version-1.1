@@ -1,0 +1,42 @@
+<div class="card">
+    <h2 style="color: #667eea; margin-bottom: 20px;">Groups List</h2>
+    <p style="color: #666; margin-bottom: 20px;">Select a group to view their timetable</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Group Name</th>
+                <th>Level</th>
+                <th>Specialty</th>
+                <th>Students</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each groups}}
+                <tr>
+                    <td>{{code}}</td>
+                    <td>{{name}}</td>
+                    <td>{{level_name}}</td>
+                    <td>{{specialty_name}}</td>
+                    <td>{{student_count}}</td>
+                    <td>
+                        <a href="/timetable/group/{{id}}" class="btn" style="padding: 8px 16px; font-size: 0.9rem;">
+                            View Timetable
+                        </a>
+                        <a href="/pdf/group/{{id}}" class="btn btn-success" style="padding: 8px 16px; font-size: 0.9rem; margin-left: 5px;" target="_blank">
+                            PDF
+                        </a>
+                    </td>
+                </tr>
+            {{else}}
+                <tr>
+                    <td colspan="6" style="text-align: center; padding: 40px; color: #999;">
+                        No groups found
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

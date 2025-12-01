@@ -1,0 +1,40 @@
+<div class="card">
+    <h2 style="color: #667eea; margin-bottom: 20px;">Teachers List</h2>
+    <p style="color: #666; margin-bottom: 20px;">Select a teacher to view their timetable</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Specialization</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each teachers}}
+                <tr>
+                    <td>{{employee_id}}</td>
+                    <td>{{first_name}} {{last_name}}</td>
+                    <td>{{department_name}}</td>
+                    <td>{{specialization}}</td>
+                    <td>
+                        <a href="/timetable/teacher/{{id}}" class="btn" style="padding: 8px 16px; font-size: 0.9rem;">
+                            View Timetable
+                        </a>
+                        <a href="/pdf/teacher/{{id}}" class="btn btn-success" style="padding: 8px 16px; font-size: 0.9rem; margin-left: 5px;" target="_blank">
+                            PDF
+                        </a>
+                    </td>
+                </tr>
+            {{else}}
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 40px; color: #999;">
+                        No teachers found
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
