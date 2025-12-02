@@ -1,0 +1,45 @@
+<div class="card">
+ <h2 style="color: #5d4e37; margin-bottom: 20px; font-weight: 800; lettercing: -0.03em;"> Tununiversity Time</h2>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
+    <div class="card" style="background: #1a1a1a; color: white; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; border: 2px solid #2a2a2a;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #8b7355; transform: scaleX(0); transform-origin: left; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+        <h3 style="margin-bottom: 15px; font-weight: 700; color: #8b7355;">Teacher Timetables</h3>
+        <p style="margin-bottom: 20px; color: #9b9b9b; font-size: 0.95rem;">View individual teacher schedules and export to PDF</p>
+        <a href="/timetable/teachers" class="btn" style="background: #5d4e37; color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); font-weight: 600;">View Teachers</a>
+    </div>
+    
+    <div class="card" style="background: #1a1a1a; color: white; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; border: 2px solid #2a2a2a;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #8b7355; transform: scaleX(0); transform-origin: left; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+        <h3 style="margin-bottom: 15px; font-weight: 700; color: #8b7355;">Student Timetables</h3>
+        <p style="margin-bottom: 20px; color: #9b9b9b; font-size: 0.95rem;">View individual student schedules and export to PDF</p>
+        <a href="/timetable/students" class="btn" style="background: #5d4e37; color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); font-weight: 600;">View Students</a>
+    </div>
+    
+    <div class="card" style="background: #1a1a1a; color: white; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; border: 2px solid #2a2a2a;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #8b7355; transform: scaleX(0); transform-origin: left; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+        <h3 style="margin-bottom: 15px; font-weight: 700; color: #8b7355;">Group Timetables</h3>
+        <p style="margin-bottom: 20px; color: #9b9b9b; font-size: 0.95rem;">View group schedules and export to PDF</p>
+        <a href="/timetable/groups" class="btn" style="background: #5d4e37; color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); font-weight: 600;">View Groups</a>
+    </div>
+    
+    <div class="card" style="background: #1a1a1a; color: white; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; border: 2px solid #2a2a2a;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #8b7355; transform: scaleX(0); transform-origin: left; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+        <h3 style="margin-bottom: 15px; font-weight: 700; color: #8b7355;">⚙️ Manage Timetables</h3>
+        <p style="margin-bottom: 20px; color: #9b9b9b; font-size: 0.95rem;">Create, update, and delete timetable slots</p>
+        <a href="/timetable/manage" class="btn" style="background: #5d4e37; color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); font-weight: 600;">Manage</a>
+    </div>
+</div>
+
+<style>
+    .card:hover > div:first-child {
+        transform: scaleX(1) !important;
+    }
+    
+    .card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16), 0 4px 8px rgba(0, 0, 0, 0.08), 0 0 20px rgba(93, 78, 55, 0.15) !important;
+    }
+</style>
+

@@ -1,0 +1,84 @@
+<div class="card">
+    <div style="text-align: center; margin-bottom: 30px;">
+        <h2 style="color: #667eea; margin-bottom: 10px;">Groupe : {{group.name}}</h2>
+        <p><strong>Spécialité:</strong> {{group.specialty_name}}</p>
+        <p style="color: #666; font-style: italic;">Emploi du temps du 1er semestre 2025/2026</p>
+    </div>
+    
+    <div style="margin-bottom: 20px;">
+        <a href="/pdf/group/{{group.id}}" class="btn btn-success" target="_blank">
+            Download PDF
+        </a>
+        <a href="/timetable/groups" class="btn" style="margin-left: 10px;">
+            Back to Groups
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="timetable-table-wrapper">
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th style="width: 120px;">Time</th>
+                    <th>Lundi</th>
+                    <th>Mardi</th>
+                    <th>Mercredi</th>
+                    <th>Jeudi</th>
+                    <th>Vendredi</th>
+                    <th>Samedi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="time-cell">8h30<br>à<br>10h00</td>
+                    <td>{{#each (lookup timetable 1)}}{{#if (eq (formatTime start_time) "08:30")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 2)}}{{#if (eq (formatTime start_time) "08:30")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 3)}}{{#if (eq (formatTime start_time) "08:30")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 4)}}{{#if (eq (formatTime start_time) "08:30")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 5)}}{{#if (eq (formatTime start_time) "08:30")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 6)}}{{#if (eq (formatTime start_time) "08:30")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                </tr>
+                <tr>
+                    <td class="time-cell">10h10<br>à<br>11h40</td>
+                    <td>{{#each (lookup timetable 1)}}{{#if (eq (formatTime start_time) "10:10")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 2)}}{{#if (eq (formatTime start_time) "10:10")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 3)}}{{#if (eq (formatTime start_time) "10:10")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 4)}}{{#if (eq (formatTime start_time) "10:10")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 5)}}{{#if (eq (formatTime start_time) "10:10")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 6)}}{{#if (eq (formatTime start_time) "10:10")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                </tr>
+                <tr>
+                    <td class="time-cell">11h50<br>à<br>13h20</td>
+                    <td>{{#each (lookup timetable 1)}}{{#if (eq (formatTime start_time) "11:50")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 2)}}{{#if (eq (formatTime start_time) "11:50")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 3)}}{{#if (eq (formatTime start_time) "11:50")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 4)}}{{#if (eq (formatTime start_time) "11:50")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 5)}}{{#if (eq (formatTime start_time) "11:50")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 6)}}{{#if (eq (formatTime start_time) "11:50")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                </tr>
+                <tr class="break-row">
+                    <td colspan="7" style="background: #e3f2fd; text-align: center; font-weight: bold; color: #1976d2;">Pause</td>
+                </tr>
+                <tr>
+                    <td class="time-cell">14h30<br>à<br>16h00</td>
+                    <td>{{#each (lookup timetable 1)}}{{#if (eq (formatTime start_time) "14:30")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 2)}}{{#if (eq (formatTime start_time) "14:30")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 3)}}{{#if (eq (formatTime start_time) "14:30")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 4)}}{{#if (eq (formatTime start_time) "14:30")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 5)}}{{#if (eq (formatTime start_time) "14:30")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 6)}}{{#if (eq (formatTime start_time) "14:30")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                </tr>
+                <tr>
+                    <td class="time-cell">16h10<br>à<br>17h40</td>
+                    <td>{{#each (lookup timetable 1)}}{{#if (eq (formatTime start_time) "16:10")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 2)}}{{#if (eq (formatTime start_time) "16:10")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 3)}}{{#if (eq (formatTime start_time) "16:10")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 4)}}{{#if (eq (formatTime start_time) "16:10")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 5)}}{{#if (eq (formatTime start_time) "16:10")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                    <td>{{#each (lookup timetable 6)}}{{#if (eq (formatTime start_time) "16:10")}}{{subject_name}}<br><em>{{teacher_name}}</em><br>{{room_code}}{{/if}}{{/each}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
