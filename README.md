@@ -1,4 +1,4 @@
-# 🎓 UniPlatform - University Management System
+# Tununiversity - University Management System
 
 <div align="center">
 
@@ -18,7 +18,7 @@
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Overview](#-overview)
 - [Features](#-features)
@@ -33,7 +33,7 @@
 
 ---
 
-## 🌟 Overview
+##  Overview
 
 UniPlatform is a full-featured university management system designed to streamline academic operations for students, teachers, administrators, and department heads. Built with a modern microservices architecture, it provides a scalable, maintainable, and efficient solution for educational institutions.
 
@@ -49,7 +49,7 @@ UniPlatform is a full-featured university management system designed to streamli
 
 ---
 
-## ✨ Features
+##  Features
 
 ### 👨‍🎓 For Students
 
@@ -88,7 +88,7 @@ UniPlatform is a full-featured university management system designed to streamli
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 UniPlatform follows a **microservices architecture** pattern with the following components:
 
@@ -171,7 +171,7 @@ UniPlatform follows a **microservices architecture** pattern with the following 
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -183,14 +183,8 @@ Before you begin, ensure you have the following installed:
 
 ### Quick Start
 
-1. **Clone the repository**
 
-```bash
-git clone https://github.com/yourusername/uniplatform.git
-cd uniplatform
-```
-
-2. **Environment Setup**
+. **Environment Setup**
 
 Create a `.env` file in the root directory (or use the provided `.env.example`):
 
@@ -198,7 +192,7 @@ Create a `.env` file in the root directory (or use the provided `.env.example`):
 # Database Configuration
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=your_secure_password
-POSTGRES_DB=university_platform
+POSTGRES_DB=name
 
 # JWT Secret
 JWT_SECRET=your_jwt_secret_key_here
@@ -430,37 +424,8 @@ After populating the database, use these credentials to test:
 
 **Tech Stack**: Express.js, JWT middleware
 
----
 
-## 📸 Screenshots
-
-### Landing Page
-![Landing Page](./images/landing.png)
-*Modern landing page with event carousel and glassmorphism design*
-
-### Authentication
-![Login](./images/login.png)
-*Multi-role login with role selection*
-
-### Student Portal
-![Student View](./images/student%20view.png)
-*Comprehensive student dashboard with grades, schedule, and messaging*
-
-### Teacher Portal
-![Teacher Dashboard](./images/teacher.png)
-*Teacher interface for course management and grading*
-
-### Timetable Management
-![Timetable](./images/timetable.png)
-*Advanced timetable creation and management*
-
-### Department Head Dashboard
-![Department Head](./images/department_head.png)
-*Department-level analytics and oversight*
-
----
-
-## 📚 API Documentation
+##  API Documentation
 
 ### Base URLs
 
@@ -777,17 +742,7 @@ git push origin feature/amazing-feature
 
 ---
 
-## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 👥 Authors
-
-- **Your Name** - *Initial work* - [YourGitHub](https://github.com/yourusername)
-
----
 
 ## 🙏 Acknowledgments
 
@@ -801,29 +756,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For support, email support@uniplatform.com or join our Slack channel.
 
----
 
-## 🗺️ Roadmap
-
-### Version 2.0 (Planned)
-
-- [ ] Mobile applications (iOS & Android)
-- [ ] AI-powered grade predictions
-- [ ] Advanced analytics dashboard
-- [ ] Video conferencing integration
-- [ ] Automated timetable optimization
-- [ ] Multi-language support
-- [ ] Dark mode theme
-- [ ] Progressive Web App (PWA)
-- [ ] Real-time collaboration tools
-- [ ] Blockchain-based certificates
-
----
 
 <div align="center">
 
 **⭐ Star this repository if you find it helpful! ⭐**
 
-Made with ❤️ by the UniPlatform Team
 
 </div>
