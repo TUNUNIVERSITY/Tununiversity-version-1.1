@@ -1,0 +1,39 @@
+{
+  "name": "university-analytics-service",
+  "version": "1.0.0",
+  "description": "Analytics and Reports Service for University Platform",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "analytics",
+    "reports",
+    "university",
+    "postgresql"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "csv-parser": "^3.2.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "form-data": "^4.0.4",
+    "helmet": "^7.1.0",
+    "json2csv": "^6.0.0-alpha.2",
+    "morgan": "^1.10.0",
+    "multer": "^2.0.2",
+    "pg": "^8.11.3",
+    "proxy-agent": "^6.5.0",
+    "puppeteer": "^21.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
