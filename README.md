@@ -35,7 +35,7 @@
 
 ##  Overview
 
-UniPlatform is a full-featured university management system designed to streamline academic operations for students, teachers, administrators, and department heads. Built with a modern microservices architecture, it provides a scalable, maintainable, and efficient solution for educational institutions.
+Tununiversity is a full-featured university management system designed to streamline academic operations for students, teachers, administrators, and department heads. Built with a modern microservices architecture, it provides a scalable, maintainable, and efficient solution for educational institutions.
 
 ### Key Highlights
 
